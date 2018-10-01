@@ -1,0 +1,40 @@
+dataset: cifar-10
+description: CIFAR-10 Dataset
+classes:
+    - Plane
+    - Auto
+    - Bird
+    - Cat
+    - Deer
+    - Dog
+    - Frog
+    - Horse
+    - Ship
+    - Truck
+folds:
+    - train:
+        description: CIFAR-10 Train Fold
+        classfrequencies:
+            - Plane: 5000
+            - Auto: 5000
+            - Bird: 5000
+            - Cat: 5000
+            - Deer: 5000
+            - Dog: 5000
+            - Frog: 5000
+            - Horse: 5000
+            - Ship: 5000
+            - Truck: 5000
+    - test:
+        description: CIFAR-10 Test Fold
+        classfrequencies:
+            - Plane: 1000
+            - Auto: 1000
+            - Bird: 1000
+            - Cat: 1000
+            - Deer: 1000
+            - Dog: 1000
+            - Frog: 1000
+            - Horse: 1000
+            - Ship: 1000
+            - Truck: 1000

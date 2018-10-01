@@ -1,0 +1,308 @@
+swagger: "2.0"
+info:
+  description: "This is the initial API proposal for the ConfusionFlow REST API"
+  version: "0.1.0"
+  title: "ConfusionFlow"
+  termsOfService: ""
+  contact:
+    email: "gfrogat@gmail.com"
+host: "localhost"
+basePath: "/api"
+tags:
+- name: "run"
+  description: ""
+- name: "view"
+  description: ""
+schemes:
+- "https"
+- "http"
+paths:
+  /runs:
+    get:
+      tags:
+      - "run"
+      summary: "Show all available runs"
+      description: ""
+      operationId: "getRuns"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Run"
+  /run/{runId}:
+    get:
+      tags:
+      - "run"
+      summary: "Get run by ID"
+      description: "Returns a single run"
+      operationId: "getRunById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "runId"
+        in: "path"
+        description: "ID of run to return"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Run"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Run not found"
+  /foldlog/{foldlogId}:
+    get:
+      tags:
+      - "foldlog"
+      summary: "Get foldlog by ID"
+      description: "Returns a single foldlog"
+      operationId: "getFoldLogById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "foldlogId"
+        in: "path"
+        description: "ID of foldlog to return"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/FoldLog"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "FoldLog not found"
+  /foldlog/{foldlogId}/data:
+    get:
+      tags:
+      - "foldlog"
+      summary: "Get FoldLogData by ID"
+      description: "Returns data for a single foldlog"
+      operationId: "getFoldLogDataById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "foldlogId"
+        in: "path"
+        description: "ID of foldlog to return data"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/FoldLogData"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "FoldLog not found"
+  /datasets:
+    get:
+      tags:
+      - "dataset"
+      summary: "Show all available datasets"
+      description: ""
+      operationId: "getDatasets"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Dataset"
+  /dataset/{datasetId}:
+    get:
+      tags:
+      - "dataset"
+      summary: "Get dataset by ID"
+      description: "Returns a single dataset"
+      operationId: "getDatasetById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "datasetId"
+        in: "path"
+        description: "ID of dataset to return"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Dataset"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Dataset not found"
+  /views:
+    get:
+      tags:
+      - "view"
+      summary: "Show all available views"
+      description: ""
+      operationId: "getViews"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/View"
+  /view/{viewId}:
+    get:
+      tags:
+      - "view"
+      summary: "Get view by ID"
+      description: "Returns a single view"
+      operationId: "getViewById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "viewId"
+        in: "path"
+        description: "ID of view to return"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/View"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "View not found"
+definitions:
+  View:
+    type: "object"
+    properties:
+      viewId:
+        type: "string"
+      runs:
+        type: "array"
+        items:
+          type: "string"
+          description: "#/definitions/Run/properties/runId"
+  Run:
+    type: "object"
+    properties:
+      runId:
+        type: "string"
+      trainfoldId:
+        type: "string"
+        description: "#/definitions/Fold/properties/foldId"
+      hyperparam:
+        $ref: "#/definitions/HyperParam"
+      foldlogs:
+        type: "array"
+        items:
+          $ref: "#/definitions/FoldLog"
+  Dataset:
+    type: "object"
+    properties:
+      datasetId:
+        type: "string"
+      description:
+        type: "string"
+      numclass:
+        type: "integer"
+      numfolds:
+        type: "integer"
+      classes:
+        type: "array"
+        items:
+          type: "string"
+      folds:
+        type: "array"
+        items:
+          $ref: "#/definitions/Fold"
+  HyperParam:
+    type: "object"
+    properties:
+      arch:   #architecture
+        type: "string"
+      optim:  #optimizer
+        type: "string"
+      bs:     #batchsize
+        type: "integer"
+      lr:     #learningrate
+        type: "array"
+        items:
+          type: "number"
+          format: "double"
+      m:      #momentum
+        type: "array"
+        items:
+          type: "number"
+          format: "double"
+  Fold:
+    type: "object"
+    properties:
+      foldId:
+        type: "string"
+      description:
+        type: "string"
+      dataset:
+        type: "string"
+        description: "#/definitions/Dataset/properties/datasetId"
+      numinstances:
+        type: "integer"
+      classcounts:
+        type: "array"
+        items:
+          $ref: "#/definitions/ClassCount"
+  ClassCount:
+    type: "object"
+    properties:
+      classname:
+        type: "string"
+      instancecount:
+        type: "integer"
+  FoldLog:
+    type: "object"
+    properties:
+      foldlogId:
+        type: "string"
+      description:
+        type: "string"
+      runId:
+        type: "string"
+        description: "#/definitions/Run/properties/runId"
+      foldId:
+        type: "string"
+        description: "#/definitions/Fold/properties/foldId"
+      numepochs:
+        type: "integer"
+  FoldLogData:
+    type: "object"
+    properties:
+      foldlogId:
+        type: "string"
+      numepochs:
+        type: "integer"
+      epochdata:
+        type: "array"
+        items:
+          $ref: "#/definitions/EpochData"
+  EpochData:
+    type: "object"
+    properties:
+      epochId:
+        type: "integer"
+      confmat:
+        type: "array"
+        items:
+          type: "integer"
