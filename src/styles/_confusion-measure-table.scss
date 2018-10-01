@@ -1,0 +1,59 @@
+@import "vars";
+
+.conf-measure-table-wrapper {
+  table {
+    width: 100%;
+    height: 100%;
+
+    svg {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      max-height: 100%;
+      padding: 5px 0;
+
+      line,
+      path {
+        vector-effect: non-scaling-stroke; // prevent stroke scaling on resize
+      }
+    }
+
+    thead {
+      tr {
+        border-bottom: 2px solid $label-border;
+
+        th:not(:first-child) {
+          text-align: center;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid $label-border;
+        height: 45px;
+
+        td.label-cell {
+          text-align: center;
+        }
+
+        td:not(.label-cell) {
+          position: relative;
+
+          &.selected,
+          &:active,
+          &:focus,
+          &:hover {
+            cursor: pointer;
+            outline: 2px solid $select-color;
+            border: none;
+            z-index: 1;
+            margin: 1px;
+          }
+        }
+      }
+    }
+
+  }
+}

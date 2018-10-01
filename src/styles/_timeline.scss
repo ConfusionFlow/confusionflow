@@ -1,0 +1,41 @@
+@import "vars";
+
+.timeline-view {
+  .timeline {
+    .tml-label {
+      font-size: 15px;
+      cursor: default;
+      user-select: none;
+    }
+
+    .axis .domain {
+      fill: none;
+      stroke: black;
+    }
+
+    .axis line {
+      fill: none;
+      stroke: black;
+      stroke-width: 1px;
+      //shape-rendering: crispEdges; // does not work very well: see https://github.com/d3/d3/issues/2175
+    }
+
+    .brush {
+      >.extent {
+        stroke: #fff;
+        stroke-opacity: .6;
+        stroke-width: 2px;
+        fill-opacity: .1;
+        shape-rendering: crispEdges;
+      }
+    }
+
+    .single-epoch-selector {
+      fill: $select-color
+    }
+  }
+}
+
+.timeline:not(:last-child) .axis .tick text {
+  display: none;
+}
