@@ -1,0 +1,21 @@
+@import "vars";
+
+.multilinechart,
+.linechart {
+  path {
+    fill: none;
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke; // prevent stroke scaling on resize
+  }
+}
+
+.chart-axis-x,
+.chart-axis-y {
+  > path {
+    stroke: black;
+  }
+
+  line {
+    stroke: black
+  }
+}

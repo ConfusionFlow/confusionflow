@@ -1,0 +1,29 @@
+@import "vars";
+.details-wrapper {
+  .viewpanel-content {
+    svg {
+      position: relative;
+      path {
+        stroke-width: 1;
+        vector-effect: non-scaling-stroke; // prevent stroke scaling on resize
+      }
+    }
+    .chart-name {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+
+  .chart-axis path,
+  .chart-axis line {
+    fill: none;
+    stroke: slategray;
+    shape-rendering: crispEdges;
+  }
+  .images {
+    section {
+      margin-bottom: 20px;
+    }
+  }
+}
