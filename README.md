@@ -1,10 +1,15 @@
 ![ConfusionFlow Banner](https://github.com/confusionflow/confusionflow/blob/master/docs/_static/img/confusionflow-banner.png)
 
+
+
+
 ConfusionFlow is a visualization tool distributed as Python package that enables more nuanced monitoring of a neural network's training process.
 - track and visualize the model performance of different timepoints (i.e., epochs) and dataset folds and compare different runs (e.g., different hyperparameter configurations).
 - we provide wrappers for exporting performance logs in the required format.
 
 ConfusionFlow is in an early-preview alpha. Expect some bugs and rough edges.
+
+![Confusion Flow](docs/main.png)
 
 
 ## Additional Information
