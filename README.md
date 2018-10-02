@@ -1,6 +1,14 @@
-![ConfusionFlow Banner](https://github.com/confusionflow/confusionflow/blob/master/docs/_static/img/confusionflow-banner.png)
+<p align="center"><img width="80%" src="https://github.com/confusionflow/confusionflow/blob/master/docs/_static/img/confusionflow-banner.png" alt="ConfusionFlow Banner"></p>
 
-
+<p align="center">
+  <a href="#demo">Demo</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#logging">Logging</a> •
+  <a href="#documentation">Documentation</a> •
+  <a href="#the-team">The Team</a> •
+  <a href="#feedback">Feedback</a>
+</p>
 
 
 ConfusionFlow is a visualization tool distributed as Python package that enables more nuanced monitoring of a neural network's training process.
