@@ -30,7 +30,7 @@ class Run:
             foldlog = self.create_foldlog(fold.foldId)
             self.foldlogs.append(foldlog)
 
-    def get_keras_calback(self, loss):
+    def get_keras_callback(self, loss):
         from confusionflow.logging.callbacks import RunLogger
 
         runlogger = RunLogger(self, loss)
