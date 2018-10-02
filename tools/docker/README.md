@@ -17,5 +17,5 @@ docker build . -f tools/docker/Dockerfile -t confusionflow
 ### Usage
 
 ```
-docker run --rm -p 8080:80 -v <path_to_logdir>:/logs -ti confusionflow/confusionflow:latest
+docker run --rm -p 8080:80 -v <absolute_path_to_logdir>:/logs -ti confusionflow/confusionflow:latest
 ```
