@@ -19,7 +19,7 @@ How to log a run
 
 Usage Example tf.keras
 ~~~~~~~~~~~~~~~~~~~~~~
-`tf.keras - example code <https://github.com/confusionflow/confusionflow/tree/master/examples/tf.keras/fashion-mnist>`_
+tf.keras - example code `[link to example] <https://github.com/confusionflow/confusionflow/tree/master/examples/tf.keras/fashion-mnist>`_
 
 .. literalinclude:: ../examples/tf.keras/fashion-mnist/fashion-mnist_demo.py
    :lines: 25-
@@ -28,7 +28,7 @@ Usage Example tf.keras
 
 Usage Example torch
 ~~~~~~~~~~~~~~~~~~~
-`torch - example code <https://github.com/confusionflow/confusionflow/tree/master/examples/torch/mnist>`_
+torch - example code `[link to example] <https://github.com/confusionflow/confusionflow/tree/master/examples/torch/mnist>`_
 
 .. literalinclude:: ../examples/torch/mnist/mnist_demo.py
    :lines: 102-
