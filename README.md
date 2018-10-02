@@ -9,7 +9,7 @@ ConfusionFlow is a visualization tool distributed as Python package that enables
 
 ConfusionFlow is in an early-preview alpha. Expect some bugs and rough edges.
 
-![Confusion Flow](docs/main.png)
+![ConfusionFlow Teaser](https://github.com/confusionflow/confusionflow/blob/master/docs/_static/img/confusionflow-teaser.png)
 
 
 ## Additional Information
