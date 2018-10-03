@@ -1,15 +1,4 @@
-<p align="center"><img width="80%" src="https://github.com/confusionflow/confusionflow/blob/master/docs/_static/img/confusionflow-banner.png" alt="ConfusionFlow Banner"></p>
-
-<p align="center">
-  <a href="#demo">Demo</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#getting-started">Getting Started</a> •
-  <a href="#logging">Logging</a> •
-  <a href="#documentation">Documentation</a> •
-  <a href="#the-team">The Team</a> •
-  <a href="#feedback">Feedback</a>
-</p>
-
+![ConfusionFlow Banner](https://github.com/confusionflow/confusionflow/blob/master/docs/_static/img/confusionflow-banner.png)
 
 ConfusionFlow is a visualization tool distributed as Python package that enables more nuanced monitoring of a neural network's training process.
 - track and visualize the model performance of different timepoints (i.e., epochs) and dataset folds and compare different runs (e.g., different hyperparameter configurations).
@@ -19,6 +8,9 @@ ConfusionFlow is in an early-preview alpha. Expect some bugs and rough edges.
 
 ![ConfusionFlow Teaser](https://github.com/confusionflow/confusionflow/blob/master/docs/_static/img/confusionflow-teaser.png)
 
+## Demo
+
+Try the latest stable release of ConfusionFlow with several [example logs](http://data.caleydo.org/app_data/confusionflow-example-data.zip) for the CIFAR-10 dataset: http://confusionflow.caleydoapp.org
 
 ## Additional Information
 ConfusionFlow was developed as a visualization tool to provide users with more feedback while developing or tuning neural network based classifiers. Performance monitoring often only utilizes simple line charts (one would for example plot the model loss and accuracy) which might easily miss many details and changes in the model's error structure.
@@ -49,7 +41,7 @@ cd confusionflow
 python setup.py install
 ```
 
-## Getting started
+## Getting Started
 As a first step you must create some logs before you can start analyzing. Have a look at the `examples` folder and run one of the demos.
 The examples will create a new subdirectory `logs` where the performance logs will be stored.
 
