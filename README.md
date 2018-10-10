@@ -1,7 +1,13 @@
 ConfusionFlow [![Phovea][phovea-image]][phovea-url] [![NPM version][npm-image]][npm-url] [![Build Status][circleci-image]][circleci-url] [![Dependency Status][daviddm-image]][daviddm-url]
 =====================
 
-Visualizing the evolution of confusion matrices.
+Visualizing the evolution of confusion matrices. The main repository is located at [ConfusionFlow/confusionflow](https://github.com/ConfusionFlow/confusionflow).
+
+Demo
+------------
+
+Try the latest stable release of ConfusionFlow with several [example logs](http://data.caleydo.org/app_data/confusionflow-example-data.zip) for the CIFAR-10 dataset: http://confusionflow.caleydoapp.org
+
 
 Installation
 ------------
