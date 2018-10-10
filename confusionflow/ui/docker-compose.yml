@@ -4,6 +4,9 @@ services:
     image: confusionflow/confusionflow:latest
     ports:
      - "5000:80"
+    volumes:
+     # specify the path to the logdir folder in file .env
+     - ${CONFUSIONFLOW_LOGDIR}:/logs
   web:
     build:
       context: .
