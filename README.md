@@ -117,4 +117,3 @@ We would be really grateful for any [feedback](https://github.com/confusionflow/
 ## Getting Involved
 - You can ask questions on our mailing list [confusionflow-dev@googlegroups.com](https://groups.google.com/forum/#!forum/confusionflow-dev).
 - Please report bugs by submitting a [GitHub issue](https://github.com/ConfusionFlow/confusionflow/issues/new?template=bug_report.md).
-- As we currently don't have the resources to support review of external contributions, we aren't accepting any external pull requests right now.
