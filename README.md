@@ -66,6 +66,10 @@ confusionflow --logdir logs
 If you are using your own datasets you must create a `dataset-configuration` first. We provide some example configurations for some popular datasets in `examples/dataset-templates` which should help you getting started.
 
 
+### Docker
+You can also run the confusionflow via Docker. For more information please see the [documentation](https://docs.confusionflow.org/server.html#docker).
+
+
 ## Logging
 We provide simple wrappers for `Tensorflow + Keras` and `Pytorch` for logging confusion matrices and exporting them in the required ConfusionFlow format.
 
@@ -73,7 +77,7 @@ We provide simple wrappers for `Tensorflow + Keras` and `Pytorch` for logging co
 ### Log Directory Layout
 ```
 <logdir>
-├── datasets  		            <--- dataset config files
+├── datasets                    <--- dataset config files
 │   ├── mnist.json
 │   └── index.yml
 ├── foldlogdata                 <--- foldlog data
@@ -109,3 +113,7 @@ ConfusionFlow is currently maintained by [Peter Ruch](https://github.com/gfrogat
 
 ## Feedback
 We would be really grateful for any [feedback](https://github.com/confusionflow/confusionflow/issues/new?template=feedback.md) via the repository's issues section.
+
+## Getting Involved
+- You can ask questions on our mailing list [confusionflow-dev@googlegroups.com](https://groups.google.com/forum/#!forum/confusionflow-dev).
+- Please report bugs by submitting a [GitHub issue](https://github.com/ConfusionFlow/confusionflow/issues/new?template=bug_report.md).
