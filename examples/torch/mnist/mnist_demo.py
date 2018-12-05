@@ -106,21 +106,29 @@ def main():
                            transforms.ToTensor(),
                            transforms.Normalize((0.1307,), (0.3081,))
                        ])),
-        batch_size=args.test_batch_size, shuffle=True, **kwargs)
+        batch_size=args.test_batch_size, shuffle=False, **kwargs)
 
     test_log_loader = torch.utils.data.DataLoader(
         datasets.MNIST('../data', train=False, transform=transforms.Compose([
                            transforms.ToTensor(),
                            transforms.Normalize((0.1307,), (0.3081,))
                        ])),
-        batch_size=args.test_batch_size, shuffle=True, **kwargs)
+        batch_size=args.test_batch_size, shuffle=False, **kwargs)
 
     model = Net().to(device)
     optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=args.momentum)
 
     # specify folds
-    train_fold = Fold(train_log_loader, "mnist_train", "mnist.yml")
-    test_fold = Fold(test_log_loader, "mnist_test", "mnist.yml")
+    train_fold = Fold(
+        data=train_log_loader,
+        foldId="mnist_train",
+        dataset_config="mnist.yml"
+    )
+    test_fold = Fold(
+        data=test_log_loader,
+        foldId="mnist_test",
+        dataset_config="mnist.yml"
+    )
 
     # create new run
     run = Run(
