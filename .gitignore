@@ -113,3 +113,6 @@ dmypy.json
 # ConfusionFlow
 confusionflow/static
 .envrc
+
+# VSCode
+.vscode
