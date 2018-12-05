@@ -13,8 +13,8 @@ class Fold:
     A Fold is a subset of your dataset
     """
 
-    def __init__(self, dataset, foldId, dataset_config):
-        self.dataset = dataset
+    def __init__(self, data, foldId, dataset_config):
+        self.data = data
         self.foldId = foldId
         self.description = ""
         self.dataset_config = dataset_config

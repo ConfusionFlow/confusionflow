@@ -19,8 +19,7 @@ def create_logdir(logdir):
 def create_dataset_config(logdir, template_file_path):
     if not os.path.exists(os.path.realpath(template_file_path)):
         raise OSError(
-            "Error! File `{}` not found!".format(
-                os.path.realpath(template_file_path))
+            "Error! File `{}` not found!".format(os.path.realpath(template_file_path))
         )
 
     with open(template_file_path) as f:
@@ -38,8 +37,7 @@ def create_dataset_config(logdir, template_file_path):
     for foldentry in data["folds"]:
         foldname, folddata = list(foldentry.items())[0]
         export_fold = dict()
-        export_fold["foldId"] = "{}_{}".format(
-            export_dict["datasetId"], foldname)
+        export_fold["foldId"] = "{}_{}".format(export_dict["datasetId"], foldname)
         export_fold["description"] = folddata["description"]
         export_fold["dataset"] = export_dict["datasetId"]
         export_fold["numinstances"] = 0

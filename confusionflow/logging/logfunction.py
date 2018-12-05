@@ -6,7 +6,7 @@ def log_epoch(run, model, device, epoch, numclass):
     for fold, foldlog in zip(run.folds, run.foldlogs):
         assert fold.foldId == foldlog.foldId
 
-        data_loader = fold.dataset
+        data_loader = fold.data
         log_performance(foldlog, model, device, data_loader, epoch, numclass)
 
 
@@ -23,5 +23,7 @@ def log_performance(foldlog, model, device, data_loader, epoch, numclass):
 
             confusion_matrix.add(pred.data.squeeze(), target.long())
 
-    foldlog.add_epochdata(epochId=epoch, confmat = confusion_matrix.conf.flatten().tolist())
+    foldlog.add_epochdata(
+        epochId=epoch, confmat=confusion_matrix.conf.flatten().tolist()
+    )
 

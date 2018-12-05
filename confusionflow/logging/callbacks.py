@@ -10,7 +10,8 @@ from tensorflow import confusion_matrix, Session
 
 class RunLogger(Callback):
     """
-    A Runlogger is a simple wrapper for logging confusion matrices when using Keras
+    A Runlogger is a Keras Callback for evaluating the model performance on the
+    specified folds and logging the confusion matrices.
     """
 
     def __init__(self, run, loss):
@@ -25,7 +26,7 @@ class RunLogger(Callback):
             self.log_performance(fold, foldlog, epoch)
 
     def log_performance(self, fold, foldlog, epoch):
-        x, y = fold.dataset
+        x, y = fold.data
         predictions = np.argmax(self.model.predict(x, verbose=0), axis=1)
         if self.loss == "categorical_crossentropy":
             targets = np.argmax(y, axis=1)
