@@ -112,3 +112,4 @@ dmypy.json
 
 # ConfusionFlow
 confusionflow/static
+.envrc
