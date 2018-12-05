@@ -6,12 +6,20 @@
 Welcome to ConfusionFlow's documentation!
 =========================================
 
+
 .. toctree::
    :maxdepth: 1
-   :caption: Package Reference:
+   :caption: Notes
 
-   logging
-   server
+   notes/how-to-logging
+   notes/how-to-commandline
+   notes/dataset-config
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Package Reference
+
+   confusionflow/logging
 
 
 Indices and tables
