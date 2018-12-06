@@ -2,11 +2,6 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import json
-import os
-
-from confusionflow.logging.utils import check_folderpath
-
 
 class Fold:
     """

@@ -26,4 +26,3 @@ def log_performance(foldlog, model, device, data_loader, epoch, numclass):
     foldlog.add_epochdata(
         epochId=epoch, confmat=confusion_matrix.conf.flatten().tolist()
     )
-

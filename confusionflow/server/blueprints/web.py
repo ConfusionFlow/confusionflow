@@ -2,7 +2,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from flask import Blueprint, redirect
+from flask import Blueprint
 
 from confusionflow.server.utils import serve_file
 

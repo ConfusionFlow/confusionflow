@@ -1,6 +1,5 @@
 from __future__ import print_function
 
-import numpy as np
 import tensorflow as tf
 
 from confusionflow.logging import Fold, Run
@@ -49,4 +48,3 @@ model.fit(x_train, y_train, epochs=3, batch_size=64, callbacks=[runlogger])
 
 # export current log to logdir
 run.export(logdir="logs")
-

@@ -4,7 +4,7 @@ from __future__ import print_function
 
 import os
 
-from flask import Blueprint, redirect
+from flask import Blueprint
 
 from confusionflow.server.utils import serve_file
 
