@@ -1,36 +1,11 @@
 @import "vars";
 
-/* Input Range Style */
-
-$track-color: transparent !default;
-$thumb-color: #ccc !default;
-
-$thumb-radius: 2px !default;
-$thumb-height: 24px !default;
-$thumb-width: 12px !default;
-$thumb-shadow-size: 0px !default;
-$thumb-shadow-blur: 0px !default;
-$thumb-shadow-color: rgba(0, 0, 0, .2) !default;
-$thumb-border-width: 0px !default;
-$thumb-border-color: transparent !default;
-
-$track-width: 100% !default;
-$track-height: 8px !default;
-$track-shadow-size: 0px !default;
-$track-shadow-blur: 0px !default;
-$track-shadow-color: rgba(0, 0, 0, .2) !default;
-$track-border-width: 1px !default;
-$track-border-color: #ddd !default;
-
-$track-radius: 2px !default;
-$contrast: 0% !default;
-
-@import "inputrange";
-
 input[type=range][orient=vertical] {
-  margin-top: 90px;
-  transform: rotate(270deg)translate(40px, -31px);
-  width: 100px;
+  writing-mode: bt-lr; // IE
+  -webkit-appearance: slider-vertical; // WebKit
+  width: 100%;
+  height: 100px;
+  padding: 0 5px;
 }
 
 

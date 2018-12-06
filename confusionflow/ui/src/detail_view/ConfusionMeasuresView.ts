@@ -211,6 +211,13 @@ export default class ConfusionMeasuresView implements IAppView {
     $header.enter().append('th').style('width', (d) => d.width).text((d) => d.label);
     $header.exit().remove();
 
+    const $trs = this.$node.select('tbody').selectAll('tr').data(rows);
+    $trs.enter().append('tr');
+
+    const $tds = $trs.selectAll('td').data((d) => d);
+    $tds.enter().append('td');
+
+    // inserting the td elements cause a relayout of the table -> read the cell size after the td elements are added
     const cellSizes = Array.from(this.$node.select('thead tr').node().childNodes)
       .map((th: HTMLElement) => {
         return {
@@ -218,12 +225,6 @@ export default class ConfusionMeasuresView implements IAppView {
           cellHeight: (this.parentHeight - th.clientHeight) / rows.length
         };
       });
-
-    const $trs = this.$node.select('tbody').selectAll('tr').data(rows);
-    $trs.enter().append('tr');
-
-    const $tds = $trs.selectAll('td').data((d) => d);
-    $tds.enter().append('td');
 
     $tds.each(function (cell, i) {
       const $td = d3.select(this);
