@@ -23,6 +23,16 @@ def record_logdir(setup_state):
     logdir = config["LOGDIR"]
 
 
+# TODO update to ETag
+@bp.after_request
+def set_response_headers(response):
+    """Disables caching."""
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, max-age=0"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
+    return response
+
+
 @bp.route("/")
 def api_hello():
     return "Welcome to ConfusionFlow API"
