@@ -15,11 +15,13 @@ def check_folderpath(folderpath):
 
 
 def get_logdir_from_env():
-    """Tries to set the <path_to_logdir> from the CONFUSIONFLOW_LOGDIR environment variable"""
+    """Tries to set the <path_to_logdir>
+    from the CONFUSIONFLOW_LOGDIR environment variable"""
     logdir = os.environ.get("CONFUSIONFLOW_LOGDIR", None)
     if logdir is None:
         raise OSError(
-            "Error! Please specify folder with the logs via `export CONFUSIONFLOW_LOGDIR=<path to logdir>`"
+            "Error! Please specify folder with the logs "
+            "via `export CONFUSIONFLOW_LOGDIR=<path to logdir>`"
         )
     else:
         return logdir

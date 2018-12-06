@@ -13,28 +13,28 @@ classes:
     - 9
 folds:
     - train:
-        description: Fashion MNIST Train Fold
-        classfrequencies:
-            - 0: 6000
-            - 1: 6000
-            - 2: 6000
-            - 3: 6000
-            - 4: 6000
-            - 5: 6000
-            - 6: 6000
-            - 7: 6000
-            - 8: 6000
-            - 9: 6000
+          description: Fashion MNIST Train Fold
+          classfrequencies:
+              - 0: 6000
+              - 1: 6000
+              - 2: 6000
+              - 3: 6000
+              - 4: 6000
+              - 5: 6000
+              - 6: 6000
+              - 7: 6000
+              - 8: 6000
+              - 9: 6000
     - test:
-        description: Fashion MNIST Test Fold
-        classfrequencies:
-            - 0: 1000
-            - 1: 1000
-            - 2: 1000
-            - 3: 1000
-            - 4: 1000
-            - 5: 1000
-            - 6: 1000
-            - 7: 1000
-            - 8: 1000
-            - 9: 1000
+          description: Fashion MNIST Test Fold
+          classfrequencies:
+              - 0: 1000
+              - 1: 1000
+              - 2: 1000
+              - 3: 1000
+              - 4: 1000
+              - 5: 1000
+              - 6: 1000
+              - 7: 1000
+              - 8: 1000
+              - 9: 1000

@@ -6,7 +6,10 @@ import argparse
 
 from gevent import pywsgi
 
+from confusionflow import _version
 from confusionflow.server import create_app
+
+__version__ = _version.__version__
 
 
 def main():
@@ -19,12 +22,14 @@ def main():
 
     confusionflow_app = create_app(FLAGS.logdir)
 
-    http_server = pywsgi.WSGIServer(
-        (FLAGS.host, FLAGS.port), confusionflow_app)
+    http_server = pywsgi.WSGIServer((FLAGS.host, FLAGS.port), confusionflow_app)
 
     try:
-        print("Starting ConfusionFlow Server on http://{}:{}".format(
-            FLAGS.host, FLAGS.port))
+        print(
+            "Starting ConfusionFlow Server on http://{}:{}".format(
+                FLAGS.host, FLAGS.port
+            )
+        )
         http_server.serve_forever()
     except KeyboardInterrupt:
         print("Server received KeyboardInterrupt. Shutting down ...")

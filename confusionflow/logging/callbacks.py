@@ -4,13 +4,12 @@ from __future__ import print_function
 
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.callbacks import Callback
-from tensorflow import confusion_matrix, Session
 
 
-class RunLogger(Callback):
+class RunLogger(tf.keras.callbacks.Callback):
     """
-    A Runlogger is a simple wrapper for logging confusion matrices when using Keras
+    A Runlogger is a Keras Callback for evaluating the model performance on the
+    specified folds and logging the confusion matrices.
     """
 
     def __init__(self, run, loss):
@@ -25,7 +24,7 @@ class RunLogger(Callback):
             self.log_performance(fold, foldlog, epoch)
 
     def log_performance(self, fold, foldlog, epoch):
-        x, y = fold.dataset
+        x, y = fold.data
         predictions = np.argmax(self.model.predict(x, verbose=0), axis=1)
         if self.loss == "categorical_crossentropy":
             targets = np.argmax(y, axis=1)
@@ -33,7 +32,7 @@ class RunLogger(Callback):
             targets = y
         else:
             raise ValueError("loss `{}` is not supported".format(self.loss))
-        confmat = confusion_matrix(targets, predictions)
+        confmat = tf.confusion_matrix(targets, predictions)
         # transform tf.Tensor to list
         confmat = confmat.eval(session=self.session).flatten().tolist()
         foldlog.add_epochdata(epochId=epoch, confmat=confmat)
