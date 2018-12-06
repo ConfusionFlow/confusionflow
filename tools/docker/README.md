@@ -1,7 +1,9 @@
 ## Docker
 
 ### Building Container
-Make sure that the UI component is already built before building the Docker containers (the containers size will blow up otherwise to the `node_modules`).
+
+Make sure that the UI component is already built before building the Docker containers (the containers size will blow up otherwise due to the `node_modules`).
+
 ```
 # UI component
 python setup.py build_ui
@@ -12,7 +14,6 @@ docker build . -f tools/docker/dev.Dockerfile -t confusionflow-dev
 # Production
 docker build . -f tools/docker/Dockerfile -t confusionflow
 ```
-
 
 ### Usage
 
