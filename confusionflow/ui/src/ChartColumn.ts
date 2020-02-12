@@ -174,11 +174,62 @@ export class FNChartColumn extends ChartColumn {
     singleEpochIndex: number[]
   ): PanelCell[] {
     data = data.slice(0);
-    const arrays = [],
+    const arrays_tmp = [],
       size = AppConstants.CONF_MATRIX_SIZE;
     while (data.length > 0) {
-      arrays.push(data.splice(0, size));
+      arrays_tmp.push(data.splice(0, size));
     }
+
+    const arrays = JSON.parse(JSON.stringify(arrays_tmp));
+
+    for (let i = 0; i < AppConstants.CONF_MATRIX_SIZE; i++) {
+      // Get number of runs
+      let num_runs = 0;
+      arrays[i]
+        .map(d => d["linecell"].length)
+        .map(d => {
+          num_runs = Math.max(d, num_runs);
+        });
+
+      let runs_values = Array.from(
+        new Array(num_runs),
+        (x, i) => i
+      ).map(d => []);
+      let runs_percentage = Array.from(
+        new Array(num_runs),
+        (x, i) => i
+      ).map(d => []);
+
+      let max_value = 0;
+
+      arrays[i].map(d => {
+        d["linecell"].map((x, j) => {
+          if (runs_values[j].length == 0) {
+            runs_values[j] = x["values"];
+            runs_percentage[j] = x["valuesInPercent"];
+          } else {
+            if (x["values"].length != 0) {
+              runs_values[j] = runs_values[j].map(
+                (val, val_idx) => val + x["values"][val_idx]
+              );
+              runs_percentage[j] = runs_percentage[j].map(
+                (val, val_idx) => val + x["valuesInPercent"][val_idx]
+              );
+            }
+          }
+          x["values"] = [];
+          x["valuesInPercent"] = [];
+          max_value = Math.max(max_value, x["max"]);
+        });
+      });
+
+      arrays[i][i]["linecell"].map((x, j) => {
+        x["values"] = runs_values[j];
+        x["valuesInPercent"] = runs_percentage[j];
+        x["max"] = max_value;
+      });
+    }
+
     return arrays.map((d: ICellData[], index) =>
       this.createCell(AppConstants.CELL_FN, d, index, singleEpochIndex)
     );
