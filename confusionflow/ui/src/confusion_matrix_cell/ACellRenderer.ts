@@ -348,7 +348,11 @@ export class BarChartRenderer extends ACellRenderer {
       .attr('height', function (d) {
         return cell.height - y(d);
       })
-      .style('fill', (d, i) => data.colorValues[i]);
+      .style('fill', (d, i) => data.colorValues[i])
+      .append('title')
+      .text(function (d) {
+          return d.toString();
+      });
   }
 
   private update = () => {
