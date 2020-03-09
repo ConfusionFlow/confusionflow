@@ -1,4 +1,4 @@
 [submodule "confusionflow/ui"]
 	path = confusionflow/ui
 	url = https://github.com/Caleydo/confusionflow-ui.git
-	branch = develop
+	branch = v0.2.1
